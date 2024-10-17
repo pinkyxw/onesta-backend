@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { clientService } from '../../application/clientService';
-import { defaultErrorHandler } from './utils';
+import { defaultErrorHandler } from '../../shared/defaultControllerMethods';
 
 export const clientController = {
     

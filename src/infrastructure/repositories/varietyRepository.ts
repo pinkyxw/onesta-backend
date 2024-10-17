@@ -1,5 +1,5 @@
 import { varieties } from '../database/schema';
-import { defaultCRUD } from './utils';
+import { defaultCRUD } from '../../shared/defaultRepositoryMethods';
 import { db } from '../database/connection';
 import { eq } from 'drizzle-orm';
 
@@ -10,7 +10,7 @@ export const varietyRepository = {
     return await db.select().from(varieties).where(eq(varieties.fruitId, fruitId));
   },
   
-  getByName: async (name: number) => {
+  getByName: async (name: string) => {
     return await db.select().from(varieties).where(eq(varieties.name, name));
   },
 };

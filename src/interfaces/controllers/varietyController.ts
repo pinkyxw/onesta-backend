@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { varietyService } from '../../application/varietyService';
-import { defaultErrorHandler } from './utils';
+import { defaultErrorHandler } from '../../shared/defaultControllerMethods';
 
 export const varietyController = {
     

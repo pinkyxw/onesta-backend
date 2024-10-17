@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 import { farmerService } from '../../application/farmerService';
-import { defaultErrorHandler } from './utils';
+import { defaultErrorHandler } from '../../shared/defaultControllerMethods';
 
 export const farmerController = {
     
   createFarmer: async (req: Request, res: Response) => {
     try {
-      const { name, email, fields } = req.body;
-      const farmer = await farmerService.create(name, email, fields);
+      const { name, email } = req.body;
+      const farmer = await farmerService.create(name, email);
       res.status(201).json(farmer);
     } catch (error) {
       defaultErrorHandler(error, res);

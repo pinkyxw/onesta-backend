@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { fruitService } from '../../application/fruitService';
-import { defaultErrorHandler } from './utils';
+import { defaultErrorHandler } from '../../shared/defaultControllerMethods';
 
 export const fruitController = {
     

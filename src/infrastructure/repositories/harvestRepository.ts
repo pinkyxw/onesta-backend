@@ -1,5 +1,5 @@
 import { harvests } from '../database/schema';
-import { defaultCRUD } from './utils';
+import { defaultCRUD } from '../../shared/defaultRepositoryMethods';
 import { db } from '../database/connection';
 import { eq } from 'drizzle-orm';
 

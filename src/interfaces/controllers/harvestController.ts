@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { harvestService } from '../../application/harvestService';
-import { defaultErrorHandler } from './utils';
+import { defaultErrorHandler } from '../../shared/defaultControllerMethods';
 
 export const harvestController = {
 

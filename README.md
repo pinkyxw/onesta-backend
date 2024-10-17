@@ -9,3 +9,13 @@ npm i
 npm run prepare:db
 npm run start
 ```
+
+## api routes
+```
+/api/farmers
+/api/fields
+...
+
+/api/csv/upload
+
+```

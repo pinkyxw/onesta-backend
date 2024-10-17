@@ -2,13 +2,14 @@ import express from 'express';
 import multer from 'multer';
 import { parse } from 'csv-parse';
 import fs from 'fs';
-import { db } from '../../infrastructure/database/connection';
-import * as schema from '../../infrastructure/database/schema';
+import { fruitRepository } from '../../infrastructure/repositories/fruitRepository';
+import { varietyRepository } from '../../infrastructure/repositories/varietyRepository';
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
 router.post('/upload', upload.single('file'), async (req, res) => {
+
   if (!req.file) {
     res.status(400).json({ error: 'No file uploaded' });
     return;
@@ -20,19 +21,28 @@ router.post('/upload', upload.single('file'), async (req, res) => {
     .on('data', (data) => results.push(data))
     .on('end', async () => {
       try {
-        // Aquí deberías procesar los datos y guardarlos en la base de datos
-        // Este es solo un ejemplo simplificado
+        
         for (const row of results) {
-          if (row.type === 'farmer') {
-            await db.insert(schema.farmers).values(row);
+          console.log(row);
+
+          // fruit
+          let fruitResult: any = await fruitRepository.getByName(row.fruit);
+          if (!fruitResult.length) {
+            fruitResult = await fruitRepository.create({ name: row.fruit });
           }
-          // Añadir lógica similar para otros tipos de datos
+          const fruit = fruitResult[0];
+
+          // variety
+          let varietyResult: any = await varietyRepository.getByName(row.variety);
+          if (!varietyResult.length) {
+            varietyResult = await varietyRepository.create({ name: row.variety, fruitId: fruit.id });
+          }
+          
         }
         res.status(200).json({ message: 'Data uploaded successfully' });
       } catch (error) {
         res.status(500).json({ error: 'Error processing CSV file' });
       } finally {
-        // Eliminar el archivo temporal
         fs.unlinkSync(req.file!.path);
       }
     });

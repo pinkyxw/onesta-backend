@@ -1,0 +1,5 @@
+date,amount,variety,fruit,fieldName,fieldLocation,farmerName,farmerEmail,clientName,clientEmail
+10/10/2024,800,fuji,manzana,fundo escondido,rancagua,juan,juan@farmer.cl,raul,raul@gamil.com
+12/10/2024,900,royal gala,manzana,Hacienda,Curico,juan,juan@farmer.cl,Mario,mario@gamil.com
+13/10/2024,450,fuji,manzana,Hacienda,rancagua,maria,mary@farmer.cl,raul,raul@gamil.com
+14/10/2024,100200,normal,naranja,Hacienda,Curico,juan,juan@farmer.cl,raul,raul@gamil.com

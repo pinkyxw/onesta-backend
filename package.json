@@ -5,14 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx tsc && npx ts-node src/index.ts"
+    "start": "npx ts-node src/index.ts",
+    "prepare:db": "npx drizzle-kit generate && npx drizzle-kit migrate"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@libsql/client": "^0.14.0",
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.6",
+    "better-sqlite3": "^11.3.0",
     "csv-parse": "^5.5.6",
     "drizzle-orm": "^0.35.1",
     "express": "^4.21.1",
@@ -23,6 +26,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
     "@types/multer": "^1.4.12",
     "@types/sqlite3": "^3.1.11",
     "drizzle-kit": "^0.26.2"

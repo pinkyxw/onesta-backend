@@ -1,0 +1,9 @@
+{
+    "schema": "./src/infrastructure/database/schema.ts", 
+    "out": "./migrations",  
+    "dbCredentials": {
+      "url": "./fruit_farm.db"
+    },
+    "dialect": "sqlite"
+}
+

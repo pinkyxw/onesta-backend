@@ -9,6 +9,7 @@ export const farmerController = {
       const farmer = await farmerService.createFarmer(name, email);
       res.status(201).json(farmer);
     } catch (error) {
+      console.error(error);
       if (error instanceof Error) {
         res.status(400).json({ error: error.message });
       } else {
